@@ -1,10 +1,10 @@
 #! /bin/sh
 
 set -e
-export DB_USER_PASS=`date | md5sum`
+export DB_USER_PASS=`uuidgen`
 export DB_USERNAME='postgres'
 export DB_NAME='foreman'
-export RAILS_SECRET=`date | shasum`
+export RAILS_SECRET=`uuidgen`
 
 kubectl create secret generic db-user-pass --from-literal=password=${DB_USER_PASS}
 kubectl create secret generic db-user --from-literal=username=${DB_USERNAME}
