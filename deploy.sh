@@ -6,6 +6,10 @@ export DB_USERNAME='postgres'
 export DB_NAME='foreman'
 export RAILS_SECRET=`uuidgen`
 
+kubectl create namespace foreman
+
+kubectl config set-context $(kubectl config current-context) --namespace=foreman
+
 kubectl create secret generic db-user-pass --from-literal=password=${DB_USER_PASS}
 kubectl create secret generic db-user --from-literal=username=${DB_USERNAME}
 kubectl create secret generic db-url --from-literal=url=postgres://${DB_USERNAME}:${DB_USER_PASS}@postgres/${DB_NAME}?pool=5 
