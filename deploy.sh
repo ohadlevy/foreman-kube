@@ -16,6 +16,7 @@ kubectl create secret generic db-url --from-literal=url=postgres://${DB_USERNAME
 kubectl create secret generic secret-key-base --from-literal=secret-key-base=${RAILS_SECRET}
 
 kubectl create -f volumes/postgres_volumes.yaml
+kubectl create -f volumes/redis_volumes.yaml
 kubectl create -f services/postgres_svc.yaml
 kubectl create -f services/redis_svc.yaml
 kubectl create -f services/rails_svc.yaml

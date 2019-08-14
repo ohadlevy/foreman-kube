@@ -2,7 +2,7 @@
 #kind: PersistentVolume
 #apiVersion: v1
 #metadata:
-#  name: postgres-pv
+#  name: redis-pv
 #  labels:
 #    type: local
 #spec:
@@ -16,7 +16,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pg-pvc
+  name: redis-pvc
 spec:
   accessModes:
     - ReadWriteOnce

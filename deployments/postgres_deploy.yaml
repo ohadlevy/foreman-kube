@@ -24,22 +24,22 @@ spec:
           claimName: postgres-pvc
       containers:
       - name: postgres
-        image: postgres:9.6-alpine
+        image: postgres:10
         env:
-        - name: POSTGRES_USER
+        - name: POSTGRESQL_USER
           valueFrom:
             secretKeyRef:
               name: "db-user"
               key: "username"
-        - name: POSTGRES_PASSWORD
+        - name: POSTGRESQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: "db-user-pass"
               key: "password"
-        - name: POSTGRES_DB
+        - name: POSTGRESQL_DATABASE
           value: "foreman_production"
         - name: PGDATA
-          value: "/var/lib/postgresql/data"
+          value: "/var/lib/postgresql/data/pgdata"
         ports:
         - containerPort: 5432
         volumeMounts:
