@@ -3,6 +3,8 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: redis-deployment
+  labels:
+    app: foreman
 spec:
   replicas: 1
   selector:
