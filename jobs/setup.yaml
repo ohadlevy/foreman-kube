@@ -25,6 +25,8 @@ spec:
               key: "url"
         - name: RAILS_ENV
           value: "production"
+        - name: SEED_ADMIN_PASSWORD
+          value: "changeme"
         - name: SECRET_KEY_BASE
           valueFrom:
             secretKeyRef:

@@ -10,3 +10,6 @@ git clone git@github.com:ohadlevy/foreman-kube.git
 cd foreman-kube
 ./deploy.sh
 ```
+
+Your foreman instance should be available under https://foreman-prod.local (feel free to change the ingress)
+default user admin, password changeme

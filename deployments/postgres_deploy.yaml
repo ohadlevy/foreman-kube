@@ -1,5 +1,5 @@
 ---
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
@@ -24,19 +24,19 @@ spec:
           claimName: postgres-pvc
       containers:
       - name: postgres
-        image: postgres:10
+        image: postgres:12
         env:
-        - name: POSTGRESQL_USER
+        - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
               name: "db-user"
               key: "username"
-        - name: POSTGRESQL_PASSWORD
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: "db-user-pass"
               key: "password"
-        - name: POSTGRESQL_DATABASE
+        - name: POSTGRES_DATABASE
           value: "foreman_production"
         - name: PGDATA
           value: "/var/lib/postgresql/data/pgdata"
